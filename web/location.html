@@ -1,0 +1,162 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Drivers on Hire in Indore | Drivers for Local, Outstation & More | HireDriver Travel Safer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="keywords" content="Hire driver Mumbai, call driver Mumbai, drivers in Mumbai, rent driver in Mumbai, Mumbai driver, Mumbai party driver, party drop driver, Mumbai outstation drivers, hire driver suburbs, Mumbai suburb drivers">
+    <meta name="description" content="Hire drivers in Mumbai and suburbs for local travel, outstation trips, night drops, party pickups ad drops and more. All our registered drivers are Police-Verified, and are experienced, well-behaved, highly skilled, and well versed with the routes across Mumbai and the rest of Maharashtra.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon1.png">
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105330803-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-105330803-1');
+    </script>
+
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+    <link rel="stylesheet" type="text/css" href="css/stylemap.css" />
+    <link rel="stylesheet" type="text/css" href="css/yellow.css" />
+
+    <!-- Revolution Slider CSS Files -->
+    <link rel="stylesheet" type="text/css" href="js/plugins/revolution/css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="js/plugins/revolution/css/layers.css" />
+    <link rel="stylesheet" type="text/css" href="js/plugins/revolution/css/navigation.css" />
+
+   
+   
+
+    <!-- Template JS Files -->
+
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-migrate-git.min.js"></script>
+
+    <script type="text/javascript" src="js/modernizr.js"></script>
+
+</head>
+
+<body class="dark double-diagonal" style="overflow-x: hidden;">
+   <h3 align="right"><a href="login.html">Logout</a></h3>
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('txtSource'));
+            new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute() {
+            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+            var mapOptions = {
+                zoom: 7,
+                center: mumbai
+            };
+            map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+            //*********DIRECTIONS AND ROUTE**********************//
+            source = document.getElementById("txtSource").value;
+            destination = document.getElementById("txtDestination").value;
+
+            var request = {
+                origin: source,
+                destination: destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    
+                    dvDistance.innerHTML += "Duration:" + duration;
+                   
+                    
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+    </script>
+<!-- About Section Starts -->
+       
+            <!-- Container Starts -->
+            <div class="container">
+                <!-- Main Heading Starts -->
+                <div class="text-center top-text">
+                    <h1><span>Choose  </span>your  <span>Destination</span></h1>
+                   </div>
+ <div>
+                    <hr class="custom about-hr">
+                </div>
+<font size="10" face="Arial" style="font-weight:bold; color:white; font-style:italic" >
+ <table border="0" cellpadding="0" cellspacing="5">
+        <tr>
+            <td colspan="2">
+                Source:
+                <input type="text" id="txtSource" value="Bandra, Mumbai, India" style="width: 300px; color:black" />
+                &nbsp; Destination:
+                <input type="text" id="txtDestination" value="Andheri, Mumbai, India" style="width: 300px; color:black" />
+                <br />
+                <br/>
+                <br/>
+               <center>
+                <input type="button" value="Get Route" onclick="GetRoute()" style="color:black" />
+                </center>
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="dvDistance" style="font-weight:bold;font-size:20px">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="dvMap" style="width: 500px; height: 500px">
+                </div>
+            </td>
+            <td>
+               <div id="amt" style="color:white; background-color:rgb(120,120,120)">
+            </td>
+        </tr>
+    </table>
+</font>
+    <br />
+</body>
+</html>
