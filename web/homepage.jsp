@@ -425,7 +425,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<p>All our registered drivers are Police-Verified, and are experienced, well-behaved, highly skilled, and well versed with the routes across Indore and the rest of Madhyapradesh</p>
 			<ul>
 				<li><a href="contactus.html"  data-toggle="modal" data-target="#myModal" class="w3ls_more" >Read More</a></li>
-				<li><a href="contactus.html" class="w3l scroll">Contact Us</a></li>
+				<li><a href="#contact" class="hvr-underline-from-center scroll">Contact Us</a></li>
 			</ul>
 		</div>
 		<div class="clearfix"></div>
