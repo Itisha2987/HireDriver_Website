@@ -670,17 +670,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </section>
 <!-- //contact -->	
 	
-<!-- subscribe section -->
-<section class="subscribe" id="subscribe">
-	<div class="container">
-		<h3 class="heading">Subscribe to our newsletter</h3>
-		<form action="#" method="post" class="newsletter">
-			<input class="email" type="email" placeholder="Enter Your Email..." required="">
-			<input type="submit" class="submit" value="subscribe">
-		</form>
-	</div>
-</section>
-<!-- //subscribe section -->
+
 
 <!-- footer start here -->
 <section class="footer-agile">
